@@ -7,14 +7,18 @@ namespace SoftwareHero.Core.Factories
         private const string NamePath = @"";
         private const string MaleNamesFilename = "male.txt";
         private const string FemaleNamesFilename = "female.txt";
+        // AKA Benford's Law
+        private static readonly short[] KnowledgeCurve = { 30, 18, 12, 10, 8, 7, 6, 5, 4 };
 
         private readonly Random _rand;
+        private readonly CompanyIndustry[] _industries;
         private readonly List<string> _maleNames;
         private readonly List<string> _femaleNames;
 
         public EmployeeFactory(Random rand)
         {
             _rand = rand;
+            _industries = CompanyFactory.CompanyIndustries.ToArray();
             _maleNames = ParseNamesList(MaleNamesFilename);
             _femaleNames = ParseNamesList(FemaleNamesFilename);
         }
@@ -28,10 +32,11 @@ namespace SoftwareHero.Core.Factories
                 Gender = gender,
                 Name = ChooseName(gender),
                 Age = ChooseAge(),
-                Role = role
+                Role = role,
             };
 
             engineer.Skill = ChooseSkill(engineer.Age);
+            engineer.IndustryKnowledge = ChooseKnowledge();
 
             return engineer;
         }
@@ -53,6 +58,18 @@ namespace SoftwareHero.Core.Factories
             return _rand.Next(18, 65);
         }
 
+        private Dictionary<CompanyIndustry, Skill> ChooseKnowledge()
+        {
+            var knowledgeDict = new Dictionary<CompanyIndustry, Skill>();
+            _industries.Shuffle(_rand);
+            for (var idx = 0; idx < KnowledgeCurve.Length; idx++)
+            {
+                knowledgeDict[_industries[idx]] = new Skill(KnowledgeCurve[idx]);
+            }
+
+            return knowledgeDict;
+        }
+
         private string ChooseName(string gender)
         {
             return gender == "Male" ? _maleNames.GetRandom(_rand) : _femaleNames.GetRandom(_rand);
@@ -60,12 +77,7 @@ namespace SoftwareHero.Core.Factories
 
         private Skill ChooseSkill(int age)
         {
-            return new Skill
-            {
-                Low = -1,
-                High = -1,
-                Actual = (short)_rand.Next(0, 100)
-            };
+            return new Skill((short)_rand.Next(0, 100));
         }
 
         private static List<string> ParseNamesList(string fileName)

@@ -1,7 +1,7 @@
 ﻿using SoftwareHero.Core;
 
 var worldGenerator = new WorldGenerator(69);
-var world = worldGenerator.Generate(new DateOnly(2000, 1, 1), WorldSize.ExtraLarge);
+var world = worldGenerator.Generate(new DateOnly(2000, 1, 1), WorldSize.Small);
 
 Console.WriteLine(world);
 var grouped = world.Companies.GroupBy(c => c.Industry).ToList();

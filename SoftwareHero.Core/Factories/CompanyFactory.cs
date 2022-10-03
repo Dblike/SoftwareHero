@@ -4,7 +4,7 @@ namespace SoftwareHero.Core.Factories
 {
     public class CompanyFactory
     {
-        private static readonly List<CompanyIndustry> CompanyIndustries = Enum.GetValues(typeof(CompanyIndustry)).Cast<CompanyIndustry>().ToList();
+        public static readonly List<CompanyIndustry> CompanyIndustries = Enum.GetValues(typeof(CompanyIndustry)).Cast<CompanyIndustry>().ToList();
         private readonly Random _rand;
 
         public CompanyFactory(Random rand)
@@ -20,7 +20,7 @@ namespace SoftwareHero.Core.Factories
                 Description = "Dumb company things",
                 Founded = founded,
                 Founder = founder,
-                Industry = CompanyIndustries.GetRandom(_rand)
+                Industry = founder.IndustryKnowledge.MaxBy(f => f.Value.Actual).Key
             };
         }
 
