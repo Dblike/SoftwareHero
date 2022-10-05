@@ -33,6 +33,7 @@ namespace SoftwareHero.Core.Factories
                 Name = ChooseName(gender),
                 Age = ChooseAge(),
                 Role = role,
+                WorkRelationships = new List<WorkRelationship>()
             };
 
             engineer.Skill = ChooseSkill(engineer.Age);

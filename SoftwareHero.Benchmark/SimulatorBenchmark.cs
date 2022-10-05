@@ -19,7 +19,7 @@ namespace SoftwareHero.Benchmark
         [GlobalSetup]
         public void Setup()
         {
-            _worldGenerator = new WorldGenerator(1);
+            _worldGenerator = new WorldGenerator(new Random(1));
         }
 
         [Benchmark]

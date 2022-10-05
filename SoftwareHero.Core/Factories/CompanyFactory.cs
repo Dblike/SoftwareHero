@@ -20,7 +20,20 @@ namespace SoftwareHero.Core.Factories
                 Description = "Dumb company things",
                 Founded = founded,
                 Founder = founder,
-                Industry = founder.IndustryKnowledge.MaxBy(f => f.Value.Actual).Key
+                Industry = founder.IndustryKnowledge.MaxBy(f => f.Value.Actual).Key,
+                Employees = new List<Employee> { founder },
+                Product = new Product
+                {
+                    Name = "Dumb product",
+                    Description = "Dumb product things",
+                    Quality = new Dictionary<EngineeringArea, int>
+                    {
+                        { EngineeringArea.Frontend, 0 },
+                        { EngineeringArea.Backend, 0 },
+                        { EngineeringArea.Database, 0 },
+                        { EngineeringArea.Security, 0 }
+                    }
+                }
             };
         }
 

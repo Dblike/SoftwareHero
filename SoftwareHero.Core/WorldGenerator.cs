@@ -7,9 +7,9 @@ namespace SoftwareHero.Core
         // Deterministic World Generation
         private readonly Random _rand;
 
-        public WorldGenerator(int seed)
+        public WorldGenerator(Random rand)
         {
-            _rand = new Random(seed);
+            _rand = rand;
         }
 
         public World Generate(DateOnly startDate, WorldSize worldSize)

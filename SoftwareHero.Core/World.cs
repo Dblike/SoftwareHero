@@ -16,7 +16,7 @@ namespace SoftwareHero.Core
             {
                 builder.AppendLine(company.ToString());
             }
-
+            
             return builder.ToString();
         }
     }

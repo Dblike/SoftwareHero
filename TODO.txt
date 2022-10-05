@@ -1,0 +1,4 @@
+Programming Languages
+Start to define project tasks and software areas
+-Quality
+-Maintainability
