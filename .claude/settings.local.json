@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(dir:*)",
+      "Bash(find:*)",
+      "Bash(findstr:*)",
+      "Bash(grep:*)",
+      "Bash(tree:*)",
+      "Bash(wc:*)",
+      "Bash(mkdir:*)",
+      "Bash(cut:*)",
+      "Bash(xargs:*)",
+      "Bash(curl:*)",
+      "Bash(powershell:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(pwsh:*)",
+      "Bash(dotnet build:*)",
+      "Bash(dotnet test:*)",
+      "Bash(dotnet run:*)",
+      "Bash(dotnet pack:*)",
+      "Bash(dotnet new:*)",
+      "Bash(dotnet sln:*)",
+      "Bash(dotnet add:*)",
+      "Bash(git log:*)",
+      "Bash(git tag:*)",
+      "Bash(flutter:*)",
+      "Bash(flutter.bat:*)",
+      "Bash(dart:*)",
+      "Bash(adb:*)",
+      "Bash(python3:*)",
+      "Bash(taskkill:*)",
+      "Bash(timeout:*)",
+      "Bash(where:*)",
+      "Bash(wmic:*)"
+    ]
+  }
+}
