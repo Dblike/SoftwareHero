@@ -1,6 +1,6 @@
 # SoftwareHero
 
-<!-- One-line description of the game -->
+2D simulation game about the journey to becoming a legendary software developer.
 
 ## Status
 
@@ -8,7 +8,26 @@
 
 ## Overview
 
-<!-- What kind of game is this? -->
+A Windows-only 2D simulation game where players experience the journey of becoming a successful software developer. Part of a shared game engine family with BadmintonHero and FatChampion.
+
+### Game Concept
+
+- Career progression from junior to legend
+- Coding challenges, project decisions, and skill development
+- Tech industry simulation with realistic scenarios
+
+## Related Projects
+
+| Game | Theme | Description |
+|------|-------|-------------|
+| BadmintonHero | Badminton | Journey to badminton championship |
+| FatChampion | Weight Loss | Journey to health and fitness |
+| **SoftwareHero** | Software Dev | Journey to becoming a dev legend |
+
+These games share:
+- Common 2D graphical style
+- Core simulation engine components
+- Windows desktop platform target
 
 ## Architecture
 
@@ -25,7 +44,7 @@ SoftwareHero.Benchmark/    # Performance benchmarks
 ### Prerequisites
 
 - .NET 10 SDK
-- MonoGame 3.8+
+- Game engine TBD (MonoGame, Raylib, etc.)
 
 ### Build
 
@@ -44,10 +63,6 @@ dotnet run --project SoftwareHero
 ```bash
 dotnet test
 ```
-
-## Controls
-
-<!-- Document game controls here -->
 
 ## Development
 
