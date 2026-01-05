@@ -1,75 +1,65 @@
-# CLAUDE.md - SoftwareHero Development Protocol
+# CLAUDE.md — SoftwareHero
 
-> Guidelines for Claude when working on this game codebase.
+<!-- AUTO-GENERATED: Do not edit directly. Modify CLAUDE.project.md instead. -->
+<!-- Template: archived | Generated: 2026-01-05 -->
 
----
+> ⚠️ **ARCHIVED PROJECT** - This project is no longer actively maintained.
 
 ## Project Overview
 
-2D simulation game about the journey to becoming a legendary software developer. Windows-only desktop game sharing engine components with BadmintonHero and FatChampion.
-
----
+2D simulation game about a software developer career. Windows desktop.
 
 ## Related Projects
 
-This game is part of a family of 2D simulation games:
-- **BadmintonHero** - Badminton career simulation
-- **FatChampion** - Weight loss journey simulation
-- **SoftwareHero** - Software developer career simulation
-
-When making architectural decisions, consider reusability across all three games.
-
----
+Part of a family of 2D simulation games:
+- BadmintonHero - Badminton career simulation
+- FatChampion - Weight loss journey simulation
+- SoftwareHero - Software developer career simulation
 
 ## Architecture
 
 - **SoftwareHero.Core** - Platform-independent game logic
-  - Entities, components, systems
-  - Game state, rules, AI
-  - Simulation engine (shareable with sibling projects)
-  - No rendering or input code
+- **SoftwareHero.Game** - Platform layer (Windows)
 
-- **SoftwareHero** - Platform layer (Windows)
-  - Rendering, sprites, audio
-  - Input handling
-  - Game loop integration
+## Status
 
-- **SoftwareHero.Benchmark** - Performance testing
+Archived - no longer actively maintained.
 
 ---
 
-## Workflow
+## Plans & Reference Materials
 
-1. **Understand** - Read existing code and game design before changing
-2. **Plan** - Propose changes for approval
-3. **Implement** - Keep changes minimal and focused
-4. **Validate** - Build, test, and playtest
+### Plans Workflow
 
----
+All implementation plans follow this lifecycle:
 
-## Rules
+1. **Create**: `.claude/plans/<description>-<YYYYMMDD>.md`
+2. **Execute**: Update task checkboxes as work progresses
+3. **Complete**: Add completion summary
+4. **Archive**: Move to `.claude/plans/archive/`
 
-### DO:
-- Keep Core free of rendering/platform dependencies
-- Design Core components for reuse across sibling games
-- Test game logic in Core with unit tests
-- Keep rendering code separate from game logic
-- Use explicit state machines for game states
-- Target Windows desktop only
+### Reference Materials
 
-### DON'T:
-- Mix rendering with game logic
-- Add dependencies without approval
-- Make sweeping changes without a plan
-- Ignore performance in hot paths
-- Add mobile/web compatibility concerns
+When implementing features, consult:
+- `reference/design/` — Architecture diagrams, UI mockups, specs
+- `reference/code/` — Code samples, patterns from other projects
 
 ---
 
-## Commands
+## CRITICAL: File Editing on Windows
 
-```bash
-dotnet build          # Build all
-dotnet test           # Run tests
-dotnet run --project SoftwareHero  # Run game
+### ⚠️ MANDATORY: Always Use Backslashes on Windows for File Paths
+
+**When using Edit or MultiEdit tools on Windows, you MUST use backslashes (`\`) in file paths, NOT forward slashes (`/`).**
+
+#### ❌ WRONG - Will cause errors:
+```
+Edit(file_path: "D:/repos/project/file.tsx", ...)
+MultiEdit(file_path: "D:/repos/project/file.tsx", ...)
+```
+
+#### ✅ CORRECT - Always works:
+```
+Edit(file_path: "D:\repos\project\file.tsx", ...)
+MultiEdit(file_path: "D:\repos\project\file.tsx", ...)
 ```
